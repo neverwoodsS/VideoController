@@ -9,7 +9,7 @@ import com.zy.open.videocontroller.interfaces.Controller;
 /**
  * Created by zhangll on 16/8/19.
  */
-public class TopController extends ValueAnimatorController implements Controller {
+public class TopController extends ValueAnimatorController {
 
     public TopController(View view) {
         super(view);

@@ -9,7 +9,7 @@ import com.zy.open.videocontroller.interfaces.Controller;
 /**
  * Created by zhangll on 16/8/19.
  */
-public class BottomController extends ValueAnimatorController implements Controller {
+public class BottomController extends ValueAnimatorController {
 
     public BottomController(View view) {
         super(view);

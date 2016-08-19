@@ -38,3 +38,10 @@ captures/
 
 # Keystore files
 *.jks
+/.idea/misc.xml
+/.idea/
+/gradle/
+/.gradle/
+.DS_Store
+app/libs/
+app/src/main/res/drawable/

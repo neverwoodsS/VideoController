@@ -7,10 +7,16 @@ import java.util.List;
 
 /**
  * Created by zhangll on 16/8/19.
+ * 出入事件分发及逻辑控制
  */
 public class ControllerManager {
 
+    /**
+     * true 当前处于显示状态，或正在执行显示动画
+     * false 当前处于隐藏状态，或正在执行隐藏动画
+     */
     private boolean showing = true;
+
     private List<Controller> controllerList = new ArrayList<>();
     private CountDownTimer countDownTimer;
 
@@ -19,6 +25,10 @@ public class ControllerManager {
         return this;
     }
 
+    /**
+     * 倒计时隐藏 controllers
+     * @return
+     */
     public ControllerManager init() {
         startCount();
         return this;
@@ -28,6 +38,10 @@ public class ControllerManager {
         return showing;
     }
 
+    /**
+     * 切换状态
+     * 同时取消倒计时
+     */
     public void switchState() {
         stopCount();
         showing = !showing;
@@ -38,6 +52,10 @@ public class ControllerManager {
         }
     }
 
+    /**
+     * 分发 show 事件至所有 controller
+     * 同时开始倒计时
+     */
     private void show() {
         for (Controller controller : controllerList) {
             controller.show();
@@ -51,6 +69,9 @@ public class ControllerManager {
         }
     }
 
+    /**
+     * 倒计时结束时切换状态
+     */
     private void startCount() {
         countDownTimer = new CountDownTimer(2500, 2500) {
             @Override
@@ -68,6 +89,7 @@ public class ControllerManager {
     private void stopCount() {
         if (countDownTimer != null) {
             countDownTimer.cancel();
+            countDownTimer = null;
         }
     }
 }

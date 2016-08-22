@@ -20,7 +20,6 @@ public class ControllersView extends RelativeLayout {
 
     private ControllerManager controllerManager;
 
-
     public ControllersView(Context context) {
         super(context);
         this.context = context;
@@ -28,7 +27,7 @@ public class ControllersView extends RelativeLayout {
     }
 
     private void initView() {
-        View rootView = LayoutInflater.from(context).inflate(R.layout.layout_control, null);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.layout_control, this);
 
         topView = rootView.findViewById(R.id.ll_top);
         bottomView = rootView.findViewById(R.id.rl_bottom);
@@ -36,7 +35,7 @@ public class ControllersView extends RelativeLayout {
         controllerManager = new ControllerManager();
         controllerManager.addController(new TopController(topView))
                 .addController(new BottomController(bottomView))
-                .init();
+                .startWorking();
 
         rootView.setOnClickListener(new OnClickListener() {
             @Override
@@ -44,7 +43,5 @@ public class ControllersView extends RelativeLayout {
                 controllerManager.switchState();
             }
         });
-
-        addView(rootView);
     }
 }

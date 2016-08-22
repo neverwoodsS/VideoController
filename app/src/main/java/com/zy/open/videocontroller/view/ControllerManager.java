@@ -26,10 +26,10 @@ public class ControllerManager {
     }
 
     /**
-     * 倒计时隐藏 controllers
+     * 初始化完成后 开始倒计时隐藏 controllers
      * @return
      */
-    public ControllerManager init() {
+    public ControllerManager startWorking() {
         startCount();
         return this;
     }

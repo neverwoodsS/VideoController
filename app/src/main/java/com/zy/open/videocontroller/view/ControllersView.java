@@ -1,6 +1,7 @@
 package com.zy.open.videocontroller.view;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -22,6 +23,12 @@ public class ControllersView extends RelativeLayout {
 
     public ControllersView(Context context) {
         super(context);
+        this.context = context;
+        initView();
+    }
+
+    public ControllersView(Context context, AttributeSet attrs) {
+        super(context, attrs);
         this.context = context;
         initView();
     }
